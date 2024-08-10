@@ -1,5 +1,7 @@
 import { createEffect, createEvent, createStore, sample } from "effector";
 
+export { Link } from "./link";
+
 export const $redirectTo = createStore<string | null>(null, {
   // This store should not be passed from server to browser
   // Because we have different routing system on server and browser.

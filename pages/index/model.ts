@@ -4,10 +4,10 @@ import { pageStarted } from "./+pageStarted";
 
 const randomFx = createEffect(({ message }: { message: string }) => {
   const number = Math.round(Math.random() * 1000);
-  return `${message} ${number}`;
+  return number;
 });
 
-export const $random = createStore("");
+export const $random = createStore(0);
 
 sample({
   clock: pageStarted,
