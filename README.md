@@ -1,1 +1,1 @@
-# vike-react-template
+# effector/vike-react-template

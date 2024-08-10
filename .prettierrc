@@ -1,0 +1,20 @@
+{
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrderGroupNamespaceSpecifiers": true,
+  "importOrderParserPlugins": ["typescript", "jsx"],
+  "importOrderSortSpecifiers": true,
+  "importOrderSeparation": true,
+  "importOrder": [
+    "^node:(.*)",
+    "^react",
+    "<THIRD_PARTY_MODULES>",
+    "^@(.*).css$",
+    "^[./]"
+  ]
+}

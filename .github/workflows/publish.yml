@@ -1,0 +1,55 @@
+name: Publish CI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-to-npm:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: 🐧 Use Node.js v20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: v20.x
+          cache: 'pnpm'
+
+      - name: 🔍 Install dependencies
+        run: pnpm install
+
+      - name: 🔧 Build package
+        run: pnpm build
+
+      - name: 🧪 Test
+        run: pnpm test
+        env:
+          CI: true
+
+      - name: 🔦 Extract version
+        id: version
+        uses: olegtarasov/get-tag@v2.1
+        with:
+          tagRegex: 'v(.*)'
+
+      - name: 🥤 Set version from release
+        uses: reedyuk/npm-version@1.1.1
+        with:
+          version: ${{ steps.version.outputs.tag }}
+          git-tag-version: false
+          # package: 'dist/'
+
+      - name: 📝 Create NPM config
+        # working-directory: './dist/'
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: 🚀 Publish package
+        # working-directory: './dist/'
+        run: npm publish

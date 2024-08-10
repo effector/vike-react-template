@@ -1,0 +1,61 @@
+{
+  "name": "@effector/vike-react-template",
+  "version": "23.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "node --no-warnings --loader ts-node/esm server/index.ts",
+    "start": "cross-env NODE_ENV=production pnpm run server",
+    "server": "node ./dist/cli/index",
+    "build": "vite build && tsc -p server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "Sergey Sova <mail@sergeysova.com> (https://sova.sh)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "pnpm@9.7.0",
+  "dependencies": {
+    "@effector/reflect": "^9.2.0",
+    "@fastify/accepts": "^4.3.0",
+    "@fastify/compress": "^7.0.3",
+    "@fastify/cookie": "^9.3.1",
+    "@fastify/cors": "^9.0.1",
+    "@fastify/early-hints": "^1.0.1",
+    "@fastify/helmet": "^11.1.1",
+    "@fastify/rate-limit": "^9.1.0",
+    "@fastify/static": "^7.0.4",
+    "compression": "^1.7.4",
+    "dotenv": "^16.4.5",
+    "effector": "^23.2.2",
+    "effector-factorio": "^1.3.0",
+    "effector-react": "^23.2.1",
+    "fastify": "^4.28.1",
+    "patronum": "^2.2.0",
+    "pino": "^9.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vike": "0.4.183",
+    "vike-react": "^0.5.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-import-attributes": "^7.24.7",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/compression": "^1.7.5",
+    "@types/node": "^20.14.15",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "cross-env": "^7.0.3",
+    "pino-pretty": "^11.2.2",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0",
+    "vite-plugin-svgr": "^4.2.0"
+  }
+}
