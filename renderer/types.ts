@@ -8,8 +8,9 @@ declare global {
         pageStarted?: EventCallable<{ params: Record<string, string>; data: unknown }>;
       };
 
-      scopeValues?: Record<string, unknown>;
+      // https://effector.dev/en/api/effector/scope/
       scope?: Scope;
+      scopeValues?: Record<string, unknown>;
     }
   }
 }

@@ -14,6 +14,7 @@ export default {
     pageStarted: {
       env: { client: true, server: true },
     },
+    // https://effector.dev/en/api/effector/scope/
     scope: {
       env: { client: true, server: true },
     },
