@@ -1,23 +1,36 @@
 {
   "name": "@effector/vike-react-template",
+  "private": true,
   "version": "23.0.0",
-  "description": "",
+  "description": "Template for quickly starting a SSR Node.js application with vite, react, effector, and fastify",
+  "packageManager": "pnpm@9.7.1+sha256.46f1bbc8f8020aa9869568c387198f1a813f21fb44c82f400e7d1dbde6c70b40",
   "scripts": {
     "dev": "node --no-warnings --loader ts-node/esm server/index.ts",
     "start": "cross-env NODE_ENV=production pnpm run server",
     "server": "node ./dist/cli/index",
     "build": "vite build && tsc -p server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write '*'"
   },
+  "repository": "https://github.com/effector/vike-react-template",
   "type": "module",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "typescript",
+    "vite",
+    "vike",
+    "effector",
+    "fastify",
+    "starter",
+    "boilerplate",
+    "template"
+  ],
   "author": "Sergey Sova <mail@sergeysova.com> (https://sova.sh)",
   "license": "MIT",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=18.6.0"
   },
-  "packageManager": "pnpm@9.7.0",
   "dependencies": {
     "@effector/reflect": "^9.2.0",
     "@fastify/accepts": "^4.3.0",
@@ -43,6 +56,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@babel/parser": "^7.25.3",
     "@babel/plugin-syntax-import-attributes": "^7.24.7",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/compression": "^1.7.5",
