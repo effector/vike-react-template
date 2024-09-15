@@ -1,4 +1,4 @@
-import type { EventCallable, Scope } from "effector";
+import type { EventCallable } from "effector";
 
 // https://vike.dev/pageContext#typescript
 declare global {
