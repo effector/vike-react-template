@@ -1,14 +1,16 @@
-import { fork } from "effector";
+import { allSettled, fork, serialize } from "effector";
 
 // https://vike.dev/onBeforeRenderClient
-export function onBeforeRenderClient(pageContext: Vike.PageContext) {
+export async function onBeforeRenderClient(pageContext: Vike.PageContext) {
   // https://vike.dev/pageContext
-  if (!("scope" in pageContext)) {
-    return {
-      pageContext: {
-        // https://effector.dev/en/api/effector/fork/
-        scope: fork({ values: pageContext.scopeValues }),
-      },
-    };
+
+  const scope = fork({ values: pageContext.scopeValues });
+
+  const pageClientStarted = pageContext.config.pageClientStarted;
+
+  if (pageClientStarted) {
+    await allSettled(pageClientStarted, { scope });
   }
+
+  pageContext.scopeValues = serialize(scope);
 }

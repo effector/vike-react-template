@@ -6,10 +6,8 @@ declare global {
     interface PageContext {
       config: {
         pageStarted?: EventCallable<{ params: Record<string, string>; data: unknown }>;
+        pageClientStarted?: EventCallable<void>;
       };
-
-      // https://effector.dev/en/api/effector/scope/
-      scope?: Scope;
       scopeValues?: Record<string, unknown>;
     }
   }
