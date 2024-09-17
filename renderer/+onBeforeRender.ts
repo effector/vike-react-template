@@ -28,7 +28,6 @@ export const onBeforeRender: OnBeforeRenderAsync = async (pageContext) => {
 
   return {
     pageContext: {
-      scope,
       // https://effector.dev/en/api/effector/serialize
       scopeValues: serialize(scope),
     },

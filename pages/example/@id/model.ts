@@ -1,9 +1,11 @@
 import { createStore, sample } from "effector";
 import { redirectTo } from "~/shared/routing";
 
+import { pageClientStarted } from "./+pageClientStarted";
 import { pageStarted } from "./+pageStarted";
 
 export const $id = createStore("");
+export const $clientId = createStore(0);
 
 const dataInitialized = sample({
   clock: pageStarted,
@@ -20,4 +22,10 @@ sample({
   clock: dataInitialized,
   fn: ({ sampleData: { id } }) => id,
   target: $id,
+});
+
+sample({
+  clock: pageClientStarted,
+  fn: () => 1,
+  target: $clientId,
 });
