@@ -17,10 +17,6 @@ export default {
     pageClientStarted: {
       env: { client: true, server: false },
     },
-    // https://effector.dev/en/api/effector/scope/
-    scope: {
-      env: { client: true, server: true },
-    },
   },
 
   // https://vike.dev/extends

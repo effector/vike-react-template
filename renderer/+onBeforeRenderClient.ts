@@ -8,9 +8,8 @@ export async function onBeforeRenderClient(pageContext: Vike.PageContext) {
 
   const pageClientStarted = pageContext.config.pageClientStarted;
 
-  if (pageClientStarted) {
+  if (pageClientStarted && !pageContext.isHydration) {
     await allSettled(pageClientStarted, { scope });
+    pageContext.scopeValues = serialize(scope);
   }
-
-  pageContext.scopeValues = serialize(scope);
 }

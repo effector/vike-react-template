@@ -1,11 +1,36 @@
 import type React from "react";
+import { useEffect, useRef } from "react";
 
-import { fork } from "effector";
-import { Provider } from "effector-react";
+import { EffectorNext } from "@effector/next";
+import { createEvent } from "effector";
+import { useUnit } from "effector-react";
 import { usePageContext } from "vike-react/usePageContext";
 
-export default function WrapperEffector({ children }: { children: React.ReactNode }) {
-  const { scopeValues } = usePageContext();
+const noop = createEvent();
 
-  return <Provider value={fork({ values: scopeValues })}>{children}</Provider>;
+const Inner = () => {
+  const { config } = usePageContext();
+  const clientStartedRef = useRef(false);
+  const onClientStarted = useUnit(config.pageClientStarted ?? noop);
+
+  useEffect(() => {
+    if (!clientStartedRef.current && "pageClientStarted" in config) {
+      onClientStarted();
+      clientStartedRef.current = true;
+    }
+  }, []);
+
+  return <></>;
+};
+
+export default function WrapperEffector({ children }: { children: React.ReactNode }) {
+  const pageContext = usePageContext();
+  const { scopeValues } = pageContext;
+
+  return (
+    <EffectorNext values={scopeValues}>
+      <Inner />
+      {children}
+    </EffectorNext>
+  );
 }

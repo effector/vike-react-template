@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@effector/next':
+        specifier: ^0.7.0
+        version: 0.7.0(effector-react@23.2.1(effector@23.2.2)(react@18.3.1))(effector@23.2.2)(react@18.3.1)
       '@effector/reflect':
         specifier: ^9.2.0
         version: 9.2.0(effector-react@23.2.1(effector@23.2.2)(react@18.3.1))(effector@23.2.2)(react@18.3.1)
@@ -266,6 +269,13 @@ packages:
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
+
+  '@effector/next@0.7.0':
+    resolution: {integrity: sha512-8KrtdGr/mYboIM5rq5r39j2gX9lXWu/AC/+Iyp882Y0G2WO6cr8opamdOlZaVaNdJYBJQ6IyuBslhmoI2TBAOw==}
+    peerDependencies:
+      effector: ^22.8.6 || ^23.0.0
+      effector-react: ^22.5.4 || ^23.0.0
+      react: ^18.2.0
 
   '@effector/reflect@9.2.0':
     resolution: {integrity: sha512-jumgC1Ztl28gRmhLei2TX3bF0p1sD/LhAWHWggbmiNcZnpX4K6odTITrFLSu4wKkyP+AX9QpF/wiqLi0njDP1A==}
@@ -2087,6 +2097,12 @@ snapshots:
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
+
+  '@effector/next@0.7.0(effector-react@23.2.1(effector@23.2.2)(react@18.3.1))(effector@23.2.2)(react@18.3.1)':
+    dependencies:
+      effector: 23.2.2
+      effector-react: 23.2.1(effector@23.2.2)(react@18.3.1)
+      react: 18.3.1
 
   '@effector/reflect@9.2.0(effector-react@23.2.1(effector@23.2.2)(react@18.3.1))(effector@23.2.2)(react@18.3.1)':
     dependencies:
